@@ -1,4 +1,4 @@
-module gogin
+module myurl
 
 go 1.14
 
