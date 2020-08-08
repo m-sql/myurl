@@ -1,7 +1,7 @@
 package help
 
 //十进制转换为62进制：0-9a-zA-Z
-func TenTo62(id int64) string {
+func TenTo62(id uint) string {
 	charset := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	var shortUrl []byte
 	for {

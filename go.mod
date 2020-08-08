@@ -13,6 +13,7 @@ require (
 	github.com/gin-gonic/gin v1.5.0
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/go-redis/redis/v7 v7.2.0
+	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.3.5 // indirect
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/jinzhu/gorm v1.9.12

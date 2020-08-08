@@ -3,9 +3,11 @@ package service
 import (
 	"crypto/md5"
 	_ "crypto/md5"
+	_ "database/sql"
 	"fmt"
 	_ "fmt"
 	_ "github.com/dgrijalva/jwt-go"
+	_ "github.com/go-sql-driver/mysql"
 	_ "golang.org/x/crypto/bcrypt"
 	"myurl/help"
 	_ "myurl/middleware"
@@ -17,46 +19,41 @@ import (
 
 //生成短网址
 type Long2ShortRequest struct {
-	OriginUrl string `json:"origin_url"`
+	OriginUrl string `form:"origin_url" json:"origin_url" binding:"required"`
 }
 
 //解析短网址
 type Short2LongRequest struct {
-	ShortUrl string `json:"short_url"`
+	ShortUrl string `form:"short_url" json:"short_url" binding:"required"`
 }
 
 type ShortUrl struct {
-	Id        int64  `db:"id"`
-	ShortUrl  string `db:"short_url"`
-	OriginUrl string `db:"origin_url"`
-	HashCode  string `db:"hash_code"`
+	Id        uint   `json:"id"`
+	ShortUrl  string `json:"short_url"`
+	OriginUrl string `json:"origin_url"`
+	HashCode  string `json:"hash_code"`
 }
 
-//记录短网址
+//短网址
 func generateShortUrl(req *Long2ShortRequest, c model.Urls, hashcode string) (shortUrl string, err error) {
-	var short ShortUrl
-	//TODO 1
-	fmt.Print(req.OriginUrl)
 	result := model.Db.Model(&c).Exec("insert INTO urls (origin_url,hash_code)VALUES (?,?)", req.OriginUrl, hashcode)
 	if result.Error != nil {
 		return shortUrl, err
 	}
-	// 0-9a-zA-Z 六十二进制
-	result.Last(&short)
-	//TODO 2
-	fmt.Print(short)
-	shortUrl = help.TenTo62(short.Id)
-	if err := model.Db.Model(&c).Exec("update urls set short_url=? where id=?", shortUrl, short.Id).Error; err != nil {
+	//注意不要用主从延迟（TODO lucklidi@126.com）
+	model.Db.Model(&model.Urls{}).Where("hash_code = ?", hashcode).First(&c)
+	shortUrl = help.TenTo62(c.ID)
+	if err := model.Db.Model(&c).Exec("update urls set short_url=? where id=?", shortUrl, c.ID).Error; err != nil {
 		return shortUrl, err
 	}
 	return shortUrl, err
 }
 
-//生成短网址
+//1、生成短网址
 func (req *Long2ShortRequest) Long2Short() serializer.Response {
-	urlMd5 := fmt.Sprintf("%x", md5.Sum([]byte(req.OriginUrl)))
 	var short ShortUrl
 	var c model.Urls
+	urlMd5 := fmt.Sprintf("%x", md5.Sum([]byte(req.OriginUrl)))
 	// 检查是否存在
 	if err := model.Db.Model(&model.Urls{}).Where("hash_code = ?", urlMd5).First(&c).Error; err != nil {
 		// 数据库中没有记录，生成一个新的短url
@@ -68,6 +65,8 @@ func (req *Long2ShortRequest) Long2Short() serializer.Response {
 			}
 		}
 		short.ShortUrl = shortUrl
+	} else {
+		short.ShortUrl = c.ShortUrl
 	}
 	return serializer.Response{
 		Code: 1,
@@ -76,7 +75,7 @@ func (req *Long2ShortRequest) Long2Short() serializer.Response {
 	}
 }
 
-//解析短网址
+//2、解析短网址
 func (s *Short2LongRequest) Short2Long() serializer.Response {
 	return serializer.Response{
 		Code: 1,
