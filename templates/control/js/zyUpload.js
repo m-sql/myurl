@@ -155,11 +155,11 @@
             this.funFilterEligibleFile = function(files){
                 var arrFiles = [];  // 鏇挎崲鐨勬枃浠舵暟缁�
                 for (var i = 0, file; file = files[i]; i++) {
-                    if(file.type.indexOf("jpeg")<0 && file.type.indexOf("png")<0){
+                    /*if(file.type.indexOf("jpeg")<0 && file.type.indexOf("png")<0){
                         //alert(file.type);
                         alert('鍥剧墖鏍煎紡涓嶅锛屽彧鑳戒笂浼爅pg涓巔ng鐨勫浘鐗�');
                         continue;
-                    }
+                    }*/
                     if (file.size >= 51200000) {
                         alert('鎮ㄨ繖涓�"'+ file.name +'"鏂囦欢澶у皬杩囧ぇ');
                     } else {

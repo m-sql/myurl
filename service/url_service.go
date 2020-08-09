@@ -68,7 +68,7 @@ func (req *Long2ShortRequest) Long2Short() serializer.Response {
 	return serializer.Response{
 		Code: 1,
 		Msg:  "成功",
-		Data: os.Getenv("PROXY_URL") + short.ShortUrl,
+		Data: os.Getenv("PROXY_URL") + "v2/" + short.ShortUrl,
 	}
 }
 
