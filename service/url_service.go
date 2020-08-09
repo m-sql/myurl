@@ -13,6 +13,7 @@ import (
 	_ "myurl/middleware"
 	"myurl/model"
 	"myurl/serializer"
+	"os"
 	_ "os"
 	_ "time"
 )
@@ -22,11 +23,7 @@ type Long2ShortRequest struct {
 	OriginUrl string `form:"origin_url" json:"origin_url" binding:"required"`
 }
 
-//解析短网址
-type Short2LongRequest struct {
-	ShortUrl string `form:"short_url" json:"short_url" binding:"required"`
-}
-
+//短网址结构体
 type ShortUrl struct {
 	Id        uint   `json:"id"`
 	ShortUrl  string `json:"short_url"`
@@ -71,15 +68,32 @@ func (req *Long2ShortRequest) Long2Short() serializer.Response {
 	return serializer.Response{
 		Code: 1,
 		Msg:  "成功",
-		Data: short.ShortUrl,
+		Data: os.Getenv("PROXY_URL") + short.ShortUrl,
 	}
 }
 
 //2、解析短网址
-func (s *Short2LongRequest) Short2Long() serializer.Response {
+func (shortUrl *ShortUrl) Short2Long() serializer.Response {
+	var c model.Urls
+	if shortUrl.ShortUrl == "" {
+		return serializer.Response{
+			Code: 0,
+			Msg:  "解析失败",
+			Data: "",
+		}
+	}
+	// 检查是否存在
+	if err := model.Db.Model(&model.Urls{}).Where("short_url = ?", shortUrl.ShortUrl).First(&c).Error; err != nil {
+		return serializer.Response{
+			Code: 0,
+			Msg:  "解析失败",
+			Data: "",
+		}
+	}
+
 	return serializer.Response{
 		Code: 1,
-		Msg:  "登录成功",
-		Data: '1',
+		Msg:  "成功",
+		Data: c.OriginUrl,
 	}
 }
