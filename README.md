@@ -68,7 +68,7 @@ cd myurl
 ```
 
 ### 5、样例图片
-![MyUrl-demo](https://github.com/m-sql/myurl/blob/master/1.png)
+![MyUrl-demo](https://github.com/m-sql/myurl/blob/master/doc/1.png)
 
 ### 6、License
 Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
