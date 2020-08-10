@@ -2,20 +2,11 @@ package service
 
 import (
 	"crypto/md5"
-	_ "crypto/md5"
-	_ "database/sql"
 	"fmt"
-	_ "fmt"
-	_ "github.com/dgrijalva/jwt-go"
-	_ "github.com/go-sql-driver/mysql"
-	_ "golang.org/x/crypto/bcrypt"
 	"myurl/help"
-	_ "myurl/middleware"
 	"myurl/model"
 	"myurl/serializer"
 	"os"
-	_ "os"
-	_ "time"
 )
 
 //生成短网址
