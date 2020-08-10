@@ -55,8 +55,6 @@ cd myurl
 ![MyUrl](https://github.com/m-sql/myurl/blob/master/doc/1.png)
 
 ### License
-```go
-_= "Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!"
-```
-## 协议
+Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
+
 [MIT : license](https://github.com/m-sql/myurl/blob/master/LICENSE)
