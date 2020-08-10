@@ -1,7 +1,7 @@
 #  mURL (my url)
 ![MyUrl](https://github.com/m-sql/myurl/blob/master/templates/control/img/myUrl.png)
 
-## 是一个对URL进行压缩的自动化工具（文件上传+文件短网址）🚀
+## 是一个对文件URL压缩短链的自动化工具（文件上传+文件短网址）服务 🚀
 
 # 功能特点
 * 跨平台支持（支持Linux, Mac环境，Windows环境理论上也支持，不过未全面测试）
