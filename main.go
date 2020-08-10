@@ -1,7 +1,6 @@
 package main
 
 import (
-	"myurl/cache"
 	"myurl/migration"
 	"myurl/model"
 	"myurl/router"
@@ -11,7 +10,7 @@ func main() {
 	// 连接数据库
 	model.Init()
 	// 连接Redis
-	cache.RedisInit()
+	//cache.RedisInit()
 	// 开启数据迁移
 	migration.Migration()
 	// 加载路由

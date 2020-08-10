@@ -70,6 +70,9 @@ cd myurl
 ### 5、样例图片
 ![MyUrl-demo](https://github.com/m-sql/myurl/blob/master/doc/1.png)
 
-### 6、License
+### 6、体验-demo
+点击访问：http://47.104.70.146:9090/upload
+
+### 7、License
 Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
 [MIT : license](https://github.com/m-sql/myurl/blob/master/LICENSE)
