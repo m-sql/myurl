@@ -1,4 +1,5 @@
 #  mURL (my url)
+![MyUrl](https://github.com/m-sql/myurl/blob/master/templates/control/img/myUrl.png)
 
 ## 是一个对URL进行压缩的自动化工具（文件上传+文件短网址）🚀
 
@@ -67,7 +68,7 @@ cd myurl
 ```
 
 ### 5、样例图片
-![MyUrl](https://github.com/m-sql/myurl/blob/master/doc/1.png)
+![MyUrl-demo](https://github.com/m-sql/myurl/blob/master/doc/1.png)
 
 ### 6、License
 Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
