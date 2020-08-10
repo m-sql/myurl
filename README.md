@@ -10,12 +10,14 @@
 * 支持自定义Route 和 API快速定制
 
 #  安装使用
+
 ## 依赖软件
-##### 一般依赖
+
+### 一般依赖
 * go 1.14+
 * git
 
-### 1、下载源码
+## 1、下载源码
 ```linux
  [root@lidi home]# git clone https://github.com/m-sql/myurl
   Cloning into 'myurl'...
@@ -24,7 +26,7 @@
   remote: Compressing objects: 100% (21/21), done.
 ```
 
-### 2、检测DNS配置: .env
+## 2、检测DNS配置: .env
 ``` linux
 DB_TYPE="mysql"
 DB_DSN="root:123456@tcp(localhost:3306)/go?charset=utf8&parseTime=True&loc=Local"
@@ -37,7 +39,7 @@ FILE_URL=""
 PROXY_URL="此项目服务地址"
 ```
 
-### 3、linux下执行Go
+## 3、linux下执行Go
 ``` linux
 cd myurl
 
@@ -62,17 +64,29 @@ cd myurl
 
 ```
 
-### 4、立刻即用
+## 4、立刻即用
 ```linux
-访问 http://localhost:9090/upload
+
+访问即可 ： http://localhost:9090/upload
+
 ```
+.
 
-### 5、样例图片
+## 5、样例图片
+
 ![MyUrl-demo](https://github.com/m-sql/myurl/blob/master/doc/1.png)
+.
 
-### 6、体验-demo
+## 6、体验-demo
+
 点击访问：http://47.104.70.146:9090/upload
+.
 
-### 7、License
+## 7、License
+
 Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
+
 [MIT : license](https://github.com/m-sql/myurl/blob/master/LICENSE)
+
+.
+
