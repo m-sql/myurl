@@ -14,7 +14,7 @@
 * go 1.14+
 * git
 
-### 0、下载源码
+### 1、下载源码
 ```linux
  [root@lidi home]# git clone https://github.com/m-sql/myurl
   Cloning into 'myurl'...
@@ -22,7 +22,21 @@
   remote: Counting objects: 100% (26/26), done.
   remote: Compressing objects: 100% (21/21), done.
 ```
-### 1、linux下执行Go
+
+### 2、检测DNS配置: .env
+``` linux
+DB_TYPE="mysql"
+DB_DSN="root:123456@tcp(localhost:3306)/go?charset=utf8&parseTime=True&loc=Local"
+JWT_KEY="jwt_secret"
+JWT_ISSUER="123456"
+REDIS_DB="0"
+REDIS_ADDR="localhost:6379"
+REDIS_PWD=""
+FILE_URL=""
+PROXY_URL="此项目服务地址"
+```
+
+### 3、linux下执行Go
 ``` linux
 cd myurl
 
@@ -46,15 +60,15 @@ cd myurl
  [GIN-debug] Listening and serving HTTP on :9090
 
 ```
-### 2、立刻即用
 
+### 4、立刻即用
 ```linux
 访问 http://localhost:9090/upload
 ```
-### 3、样例图片
+
+### 5、样例图片
 ![MyUrl](https://github.com/m-sql/myurl/blob/master/doc/1.png)
 
-### License
+### 6、License
 Completely MIT Licensed. Including ALL dependencies. If you love or like it ！Please join us!
-
 [MIT : license](https://github.com/m-sql/myurl/blob/master/LICENSE)
