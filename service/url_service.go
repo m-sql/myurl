@@ -1,7 +1,6 @@
 package service
 
 import (
-	"crypto/md5"
 	"fmt"
 	"myurl/help"
 	"myurl/model"
@@ -41,7 +40,8 @@ func generateShortUrl(req *Long2ShortRequest, c model.Urls, hashcode string) (sh
 func (req *Long2ShortRequest) Long2Short() serializer.Response {
 	var short ShortUrl
 	var c model.Urls
-	urlMd5 := fmt.Sprintf("%x", md5.Sum([]byte(req.OriginUrl)))
+	//urlMd5 := fmt.Sprintf("%x", md5.Sum([]byte(req.OriginUrl)))
+	urlMd5 := fmt.Sprintf("%x", help.Murmur64([]byte(req.OriginUrl)))
 	// 检查是否存在
 	if err := model.Db.Model(&model.Urls{}).Where("hash_code = ?", urlMd5).First(&c).Error; err != nil {
 		// 数据库中没有记录，生成一个新的短url
