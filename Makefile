@@ -20,10 +20,6 @@ CGREEN:=$(shell tput setaf 2 2>/dev/null)
 CYELLOW:=$(shell tput setaf 3 2>/dev/null)
 CEND:=$(shell tput sgr0 2>/dev/null)
 
-# use mysql:latest as default
-MYSQL_RELEASE := $(or ${MYSQL_RELEASE}, ${MYSQL_RELEASE}, mysql)
-MYSQL_VERSION := $(or ${MYSQL_VERSION}, ${MYSQL_VERSION}, latest)
-
 .PHONY: release
 release: build
 	@echo "$(CGREEN)Cross platform building for release ...$(CEND)"
