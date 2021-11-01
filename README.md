@@ -19,7 +19,13 @@
 
 ## 1、下载源码
 ```linux
- [root@lidi home]# git clone https://github.com/m-sql/myurl
+普通地址：https://github.com/m-sql/myurl
+
+加速地址：https://github.com.cnpmjs.org/m-sql/myurl.git
+```
+golang国内加速
+```linux
+ [root@lidi home]# git clone https://github.com.cnpmjs.org/m-sql/myurl.git
   Cloning into 'myurl'...
   remote: Enumerating objects: 26, done.
   remote: Counting objects: 100% (26/26), done.
@@ -29,19 +35,21 @@
 ## 2、检测DNS配置: .env
 ``` linux
 DB_TYPE="mysql"
-DB_DSN="root:123456@tcp(localhost:3306)/go?charset=utf8&parseTime=True&loc=Local"
+DB_DSN="myurl:123456@tcp(localhost:3306)/myurl?charset=utf8&parseTime=True&loc=Local"
 JWT_KEY="jwt_secret"
 JWT_ISSUER="123456"
 REDIS_DB="0"
 REDIS_ADDR="localhost:6379"
 REDIS_PWD=""
 FILE_URL=""
-PROXY_URL="此项目服务地址"
+PROXY_URL="此项目服务地址(你的地址+端口+upload/)"
 ```
 
 ## 3、linux下执行Go
 ``` linux
 cd myurl
+
+备注：如果你的Go没有加速，请：golang国内加速
 
 [root@test1 myurl]# go run go.main
  [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
