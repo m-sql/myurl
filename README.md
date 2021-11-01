@@ -49,7 +49,8 @@ PROXY_URL="此项目服务地址(你的地址+:9090/)"
 ``` linux
 cd myurl
 
-备注：如果你的Go没有加速，请：golang国内加速
+备注： 如果你的Go没有加速，请golang国内加速
+可参考 https://blog.csdn.net/weixin_35888494/article/details/121083280
 
 [root@test1 myurl]# go run go.main
  [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
