@@ -42,7 +42,7 @@ REDIS_DB="0"
 REDIS_ADDR="localhost:6379"
 REDIS_PWD=""
 FILE_URL=""
-PROXY_URL="此项目服务地址(你的地址+端口+upload/)"
+PROXY_URL="此项目服务地址(你的地址+:9090/)"
 ```
 
 ## 3、linux下执行Go
