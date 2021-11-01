@@ -23,7 +23,7 @@
 
 加速地址：https://github.com.cnpmjs.org/m-sql/myurl.git
 ```
-golang国内加速
+
 ```linux
  [root@lidi home]# git clone https://github.com.cnpmjs.org/m-sql/myurl.git
   Cloning into 'myurl'...
