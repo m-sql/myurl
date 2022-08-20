@@ -52,7 +52,7 @@ cd myurl
 备注： 如果你的Go没有加速，请golang国内加速
 可参考 https://blog.csdn.net/weixin_35888494/article/details/121083280
 
-[root@test1 myurl]# go run go.main
+[root@test1 myurl]# go run main.go
  [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
  
  [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
@@ -71,6 +71,22 @@ cd myurl
  [GIN-debug] POST   /upload/UploadAction      --> myurl/controller.UploadFile (4 handlers)
  [GIN-debug] Listening and serving HTTP on :9090
 
+```
+或者 在后台挂起
+```
+nohup go run main.go &
+
+# tail -f nohup.out 
+[GIN-debug] POST   /api/user/login           --> myurl/controller.Login (4 handlers)
+[GIN-debug] POST   /api/user/register        --> myurl/controller.Register (4 handlers)
+[GIN-debug] POST   /api/long/short           --> myurl/controller.Long2Short (4 handlers)
+[GIN-debug] GET    /templates/*filepath      --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /templates/*filepath      --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /upload/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /upload/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /upload                   --> myurl/controller.UploadHtml (4 handlers)
+[GIN-debug] POST   /upload/UploadAction      --> myurl/controller.UploadFile (4 handlers)
+[GIN-debug] Listening and serving HTTP on :9090
 ```
 
 ## 4、立刻即用
