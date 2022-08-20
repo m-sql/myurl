@@ -1,2 +1,4 @@
 templates/* linguist-vendored
 *.md linguist-language=Go
+*.html linguist-language=Go
+*.js linguist-language=Go
